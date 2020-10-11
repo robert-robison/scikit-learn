@@ -1213,6 +1213,17 @@ class RandomForestClassifier(ForestClassifier):
 
         .. versionadded:: 0.22
 
+    importance_type : {"impurity", "permutation"}, default="impurity"
+        The type of feature importance to calculate:
+
+        - If "impurity", then gets impurity-based feature importance.
+          The importance of a feature is computed as the (normalized)
+          total reduction of the criterion brought by that feature.  It is also
+          known as the Gini importance.
+        - If "permutation", then gets out-of-bag permutation importance.
+          The importance corresponds with the average decrease in r2_score
+          across all tree when a feature is permuted or shuffled.
+
     Attributes
     ----------
     base_estimator_ : DecisionTreeClassifier
@@ -1237,14 +1248,13 @@ class RandomForestClassifier(ForestClassifier):
         The number of outputs when ``fit`` is performed.
 
     feature_importances_ : ndarray of shape (n_features,)
-        The impurity-based feature importances.
+        The feature importances for features in the fitted model.
         The higher, the more important the feature.
-        The importance of a feature is computed as the (normalized)
-        total reduction of the criterion brought by that feature.  It is also
-        known as the Gini importance.
+        See ``importance_type`` for how these are calculated.
 
         Warning: impurity-based feature importances can be misleading for
-        high cardinality features (many unique values). See
+        high cardinality features (many unique values).
+        Consider setting ``importance_type="permutation"`` or using
         :func:`sklearn.inspection.permutation_importance` as an alternative.
 
     oob_score_ : float
@@ -1512,6 +1522,17 @@ class RandomForestRegressor(ForestRegressor):
 
         .. versionadded:: 0.22
 
+    importance_type : {"impurity", "permutation"}, default="impurity"
+        The type of feature importance to calculate:
+
+        - If "impurity", then gets impurity-based feature importance.
+          The importance of a feature is computed as the (normalized)
+          total reduction of the criterion brought by that feature.  It is also
+          known as the Gini importance.
+        - If "permutation", then gets out-of-bag permutation importance.
+          The importance corresponds with the average decrease in r2_score
+          across all tree when a feature is permuted or shuffled.
+
     Attributes
     ----------
     base_estimator_ : DecisionTreeRegressor
@@ -1522,14 +1543,13 @@ class RandomForestRegressor(ForestRegressor):
         The collection of fitted sub-estimators.
 
     feature_importances_ : ndarray of shape (n_features,)
-        The impurity-based feature importances.
+        The feature importances for features in the fitted model.
         The higher, the more important the feature.
-        The importance of a feature is computed as the (normalized)
-        total reduction of the criterion brought by that feature.  It is also
-        known as the Gini importance.
+        See ``importance_type`` for how these are calculated.
 
         Warning: impurity-based feature importances can be misleading for
-        high cardinality features (many unique values). See
+        high cardinality features (many unique values).
+        Consider setting ``importance_type="permutation"`` or using
         :func:`sklearn.inspection.permutation_importance` as an alternative.
 
     n_features_ : int
@@ -1827,6 +1847,17 @@ class ExtraTreesClassifier(ForestClassifier):
 
         .. versionadded:: 0.22
 
+    importance_type : {"impurity", "permutation"}, default="impurity"
+        The type of feature importance to calculate:
+
+        - If "impurity", then gets impurity-based feature importance.
+          The importance of a feature is computed as the (normalized)
+          total reduction of the criterion brought by that feature.  It is also
+          known as the Gini importance.
+        - If "permutation", then gets out-of-bag permutation importance.
+          The importance corresponds with the average decrease in r2_score
+          across all tree when a feature is permuted or shuffled.
+
     Attributes
     ----------
     base_estimator_ : ExtraTreesClassifier
@@ -1845,14 +1876,13 @@ class ExtraTreesClassifier(ForestClassifier):
         number of classes for each output (multi-output problem).
 
     feature_importances_ : ndarray of shape (n_features,)
-        The impurity-based feature importances.
+        The feature importances for features in the fitted model.
         The higher, the more important the feature.
-        The importance of a feature is computed as the (normalized)
-        total reduction of the criterion brought by that feature.  It is also
-        known as the Gini importance.
+        See ``importance_type`` for how these are calculated.
 
         Warning: impurity-based feature importances can be misleading for
-        high cardinality features (many unique values). See
+        high cardinality features (many unique values).
+        Consider setting ``importance_type="permutation"`` or using
         :func:`sklearn.inspection.permutation_importance` as an alternative.
 
     n_features_ : int
@@ -2121,6 +2151,17 @@ class ExtraTreesRegressor(ForestRegressor):
 
         .. versionadded:: 0.22
 
+    importance_type : {"impurity", "permutation"}, default="impurity"
+        The type of feature importance to calculate:
+
+        - If "impurity", then gets impurity-based feature importance.
+          The importance of a feature is computed as the (normalized)
+          total reduction of the criterion brought by that feature.  It is also
+          known as the Gini importance.
+        - If "permutation", then gets out-of-bag permutation importance.
+          The importance corresponds with the average decrease in r2_score
+          across all tree when a feature is permuted or shuffled.
+
     Attributes
     ----------
     base_estimator_ : ExtraTreeRegressor
@@ -2131,14 +2172,13 @@ class ExtraTreesRegressor(ForestRegressor):
         The collection of fitted sub-estimators.
 
     feature_importances_ : ndarray of shape (n_features,)
-        The impurity-based feature importances.
+        The feature importances for features in the fitted model.
         The higher, the more important the feature.
-        The importance of a feature is computed as the (normalized)
-        total reduction of the criterion brought by that feature.  It is also
-        known as the Gini importance.
+        See ``importance_type`` for how these are calculated.
 
         Warning: impurity-based feature importances can be misleading for
-        high cardinality features (many unique values). See
+        high cardinality features (many unique values).
+        Consider setting ``importance_type="permutation"`` or using
         :func:`sklearn.inspection.permutation_importance` as an alternative.
 
     n_features_ : int
